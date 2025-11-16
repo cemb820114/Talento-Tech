@@ -28,9 +28,41 @@ df3 = df2.drop(df2.index[57111:103196])
 #eliminacion dato atipico
 df3=df2.drop(df2.index[0])
 
+#Exportar Dataset Limpio
+# =====================================
+df3.to_csv("proyecto_limpio.csv", index=False)
+
+#IMPORTAR LIBRERÍAS
+# ================================================================
+
+import pandas as pd
+import numpy as np
 
 
+# Train / Test split
+from sklearn.model_selection import train_test_split
 
+# Preprocesamiento: numericas y categóricas
+from sklearn.preprocessing import StandardScaler, OneHotEncoder
+from sklearn.compose import ColumnTransformer
+
+# Modelo
+from sklearn.ensemble import RandomForestClassifier
+
+# Pipeline (une preprocesamiento + modelo)
+from sklearn.pipeline import Pipeline
+
+# Métricas
+from sklearn.metrics import accuracy_score, classification_report, confusion_matri
+
+
+df = pd.read_csv("proyecto_limpio.csv")
+
+print("=== Primeras filas del dataset ===")
+print(df.head())
+
+print("\n=== Información del dataset ===")
+print(df.info())
 
 
 
